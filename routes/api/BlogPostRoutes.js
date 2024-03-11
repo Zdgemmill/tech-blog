@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { BlogPost, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-//get request to pull recipe data
+//get request to pull post data
 router.get("/", async (req, res) => {
     try {
         const recipeData = await BlogPost.findAll();
@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-// GET a single recipe
+// GET a single post
 router.get("/:id", async (req, res) => {
     try {
         const BlogPostData = await BlogPost.findByPk(req.params.id, {
@@ -27,7 +27,6 @@ router.get("/:id", async (req, res) => {
             res.status(404).json({ message: "No recipe found with this id!" });
             return;
         }
-        // res.status(200).json(recipeData);
     } catch (err) {
         res.status(500).json(err);
     }

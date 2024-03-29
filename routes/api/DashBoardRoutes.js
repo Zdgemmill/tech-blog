@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { BlogPost, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all posts for homepage
+// Get all posts for homepage
 router.get("/post", withAuth, (req, res) => {
     BlogPost.findAll({
         where: {
@@ -12,31 +12,34 @@ router.get("/post", withAuth, (req, res) => {
         .then((dbPostData) => {
             const posts = dbPostData.map((post) => post.get({ plain: true }));
 
-            res.render("allAdmin", {
-                layout: "dashboard",
-                posts
+            res.render("dashboard", {
+                layout: "main",
+                posts: posts
             });
         })
         .catch(err => {
             console.log(err);
-            res.redirect("login");
+            res.redirect("/login");
         });
 });
+
+// Render the create post page
 router.get("/create", withAuth, (req, res) => {
     res.render("create", {
-        layout: "dashboard"
+        layout: "main"
     });
 });
 
+// Render the edit post page
 router.get("/edit/:id", withAuth, (req, res) => {
-    Post.findByPk(req.params.id)
+    BlogPost.findByPk(req.params.id)
         .then(dbPostData => {
             if (dbPostData) {
                 const post = dbPostData.get({ plain: true });
 
                 res.render("edit", {
-                    layout: "dashboard",
-                    post
+                    layout: "main",
+                    post: post
                 });
             } else {
                 res.status(404).end();

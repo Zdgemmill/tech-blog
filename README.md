@@ -1,4 +1,4 @@
-# README.md Generator
+# Tech-Blog
 
 # No license selected
 
@@ -14,7 +14,7 @@
 5. [Tests](#tests)
 6. [Questions](#questions)
 
-
+![Application](<Screenshot 2024-03-26 200318.png>)
 
 ## Usage
 Navigate to the live deployed link https://guarded-cove-14518-9cd7fc378f30.herokuapp.com/ and log in to create blog posts. 
@@ -24,6 +24,10 @@ None
 
 ## License
 This project is licensed under the None License.
+
+
+## Live link
+https://guarded-cove-14518-9cd7fc378f30.herokuapp.com/
 
 
 ## Questions

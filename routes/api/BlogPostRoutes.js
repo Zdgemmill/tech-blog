@@ -17,7 +17,7 @@ router.get("/:id", async (req, res) => {
     try {
         const BlogPostData = await BlogPost.findByPk(req.params.id, {
             // JOIN with locations, using the Trip through table
-            include: [{ model: User, attributes: ["name", "amount"] }],
+            include: [{ model: User, attributes: ["name"] }],
         });
         const bp = BlogPostData.get({ plain: true });
         console.log(bp);

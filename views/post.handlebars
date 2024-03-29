@@ -1,9 +1,8 @@
 <main class="container mt-5">
   <article>
-    <h1>{{name}}</h1>
-    <p>{{instructions}}</p>
+    <h1>{{title}}</h1>
+    <p>{{contents}}</p>
     <p>Created by: {{user.name}} on {{format_date date_created}}</p>
-    <img src="{{image}}" class="recipe-image"></img>
   </article>
   {{#if logged_in}}
   <form class="new-comment-form" class="mt-3">

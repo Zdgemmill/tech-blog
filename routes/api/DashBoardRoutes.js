@@ -2,8 +2,10 @@ const router = require("express").Router();
 const { BlogPost, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+
 // Get all posts for homepage
-router.get("/post", withAuth, (req, res) => {
+router.get("/", withAuth, (req, res) => {
     BlogPost.findAll({
         where: {
             userId: req.session.userId

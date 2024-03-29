@@ -1,12 +1,16 @@
 function logout() {
-    fetch("/api/user/logout", {
+    fetch("/logout", {
         method: "post",
         headers: { "Content-Type": "application/json" }
     })
-        .then(function () {
-            document.location.replace("/");
+        .then(function (response) {
+            if (response.ok) {
+                document.location.replace("/");
+            } else {
+                alert("Logout failed. Please try again.");
+            }
         })
         .catch(err => console.log(err));
 }
 
-document.querySelector("#no-button").addEventListener("click", logout);
+document.querySelector("#logout").addEventListener("click", logout);
